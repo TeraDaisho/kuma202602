@@ -1,0 +1,233 @@
+:root {
+  --color-bg: #050505;
+  --color-text: #e0e0e0;
+  --color-gold: #c5a059;
+  --color-red: #8b0000;
+  --color-card-bg: rgba(20, 20, 20, 0.8);
+  --font-main: 'Shippori Mincho', serif;
+  --font-eng: 'Cinzel', serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/bear_bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  z-index: -1;
+  filter: contrast(1.2) brightness(0.8);
+}
+
+.bg-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 90%);
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  margin-bottom: 60px;
+}
+
+.title-kanji {
+  font-size: 8rem;
+  margin: 0;
+  line-height: 1;
+  font-weight: 700;
+  background: linear-gradient(to bottom, #fff, #999);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+  letter-spacing: -0.05em;
+}
+
+.subtitle {
+  font-family: var(--font-eng);
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+  color: var(--color-gold);
+  margin-top: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  border-top: 1px solid var(--color-gold);
+  border-bottom: 1px solid var(--color-gold);
+  display: inline-block;
+  padding: 5px 20px;
+}
+
+.date-display {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.info-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 0;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-family: var(--font-eng);
+  color: var(--color-gold);
+  font-size: 0.9rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn span {
+  font-family: var(--font-eng);
+  font-size: 1.4rem;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.btn small {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--color-gold), #e6c88b);
+  color: #000;
+  border: none;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(197, 160, 89, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.8);
+}
+
+.warning-box {
+  border-left: 2px solid var(--color-red);
+  background: linear-gradient(to right, rgba(139, 0, 0, 0.1), transparent);
+  padding: 20px;
+  text-align: left;
+}
+
+.warning-box h3 {
+  font-family: var(--font-eng);
+  color: var(--color-red);
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.warning-box p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.warning-box .accent {
+  color: var(--color-red);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.sub-text {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+footer {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 0.7rem;
+  opacity: 0.4;
+  font-family: var(--font-eng);
+}
+
+@media (max-width: 400px) {
+  .title-kanji {
+    font-size: 6rem;
+  }
+}
